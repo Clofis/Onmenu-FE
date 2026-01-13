@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Daftar Manajemen Produk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/produk.css"/>
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <script>checkAuth();</script>
+    <div class="container">
+        <div class="status-bar"></div>
+        
+        <header>
+            <h1>Produk</h1>
+            <div class="header-controls">
+                <div class="search-container">
+                    <span class="search-icon material-symbols-rounded">search</span>
+                    <input class="search-input" placeholder="Cari Produk" type="text"/>
+                </div>
+                <button class="add-button">
+                    <span class="material-symbols-rounded">add</span>
+                    <span>Tambah</span>
+                </button>
+            </div>
+            <div class="category-tabs">
+                <button class="category-tab active">Semua</button>
+                <button class="category-tab">Kategori 1</button>
+                <button class="category-tab">Kategori 2</button>
+                <button class="category-tab">Kategori 3</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img alt="Snack Kerupuk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzyD29lSqqqXjx8SljVUdvYd8MZO3XwfhNUbVJk8yzAOg1PXGFWo_SeVGh3X7QHEnh5yDpU3XlE5wGRQsHKfc2h-RK9id6oJhiKwC5HS0zj9g0DUITMx9KEMN5rkgmrSpj5tyOV9CSwfCZ9sTnu2RFydm_O0T2NWgoubr7UVkFb5_PP5fVR7l93FPtJsJ92IHQDjGwmIpxctyXx-gHIOKQEZCCSxUrmhyiHXztqtposm3CO0ahfrtJff8PbpGBsfX6sL7jZqQyS3I"/>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Kategori 1</p>
+                        <h3 class="product-name">Kerupuk Original</h3>
+                        <p class="product-price">Rp10,000</p>
+                        <div class="product-actions">
+                            <button class="edit-btn">
+                                <span class="material-symbols-rounded">edit</span>
+                                Edit
+                            </button>
+                            <button class="delete-btn">
+                                <span class="material-symbols-rounded">delete</span>
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img alt="Snack Kerupuk Pedas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx5GOLHflF2OhZMCIJokpS0BXt5ieG4K9ItTTFzBd6GUacVuo3QZOuqicXiJVE1BSum3ZVpMJudmPQHOd7Y1nSX0usWgmSBKASLz7frXJxWPlZnEwW63tL5fR1zNcpo6H31HTDTuqzYyfbd2AwQHbcpR8Ima8GefcCTeTGfk6FsJ06eJjQOvHe4Z9kZlwo_Mr6uJXXpvhRR6-ohjTdgzrkDp1Mq-_o5VOsAhq1BifSW26avMFAtjgoq995LdYEh7p0v_i0LxNVtc0"/>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Kategori 1</p>
+                        <h3 class="product-name">Kerupuk Pedas</h3>
+                        <p class="product-price">Rp12,500</p>
+                        <div class="product-actions">
+                            <button class="edit-btn">
+                                <span class="material-symbols-rounded">edit</span>
+                                Edit
+                            </button>
+                            <button class="delete-btn">
+                                <span class="material-symbols-rounded">delete</span>
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img alt="Snack Kerupuk Ikan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtjawNYdQY4O18eS1Itojm7qO0_8WFQ4eJsOvZDyeQKZxKamG3emojrQp8n2tAdxZwBvfA3zAucvfQJHH2WrI1swJylX1-uv9UsT47RwSzSFAG9x1zGfB7VQb2gkjwao8b8z_OUa58xKa2OVDHPzzsg3jOEN1lbsLTozRW_Z7K9vDvr7HXnkXzNO1npAvLImCg6KN8_3fggvaHSl17rWOyOMFXDAtDoDspNzlp9JhNJGNDU0SstsOfiPHlA4nhPv3IQ9GMUUkF67E"/>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Kategori 2</p>
+                        <h3 class="product-name">Kerupuk Ikan</h3>
+                        <p class="product-price">Rp15,000</p>
+                        <div class="product-actions">
+                            <button class="edit-btn">
+                                <span class="material-symbols-rounded">edit</span>
+                                Edit
+                            </button>
+                            <button class="delete-btn">
+                                <span class="material-symbols-rounded">delete</span>
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img alt="Snack Kerupuk Udang" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClVom2Fs0QMET5i6SYCoETFWnJvJV621G-cpQyR5ZXYvdHYQn0tgjqfoGWgOJhB6r3aQi_iUBsquPkMS1DpCGCPBF_gqIn97zVuuSZJHmVeXu3mBt4vmIrLUF9nIESbJdmE8LNHYmrtLiArNoZzjNxgWQ0xsjx0V8Y7aLt89sSR2ztXTHb36lCs7Z4z6Wp98ke80Elhx6X1n4Gm8FXJjK53y3dwRo7BH_7QzRW85yujn5yAPUrWtEPRAk-VyapQA8MlZUQViNz5HM"/>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Kategori 2</p>
+                        <h3 class="product-name">Kerupuk Udang</h3>
+                        <p class="product-price">Rp18,000</p>
+                        <div class="product-actions">
+                            <button class="edit-btn">
+                                <span class="material-symbols-rounded">edit</span>
+                                Edit
+                            </button>
+                            <button class="delete-btn">
+                                <span class="material-symbols-rounded">delete</span>
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <nav>
+            <a href="dasboard.html">
+                <span class="material-symbols-rounded">home</span>
+            </a>
+            <a href="kategori.html">
+                <span class="material-symbols-rounded">grid_view</span>
+            </a>
+            <a href="produk.html" class="nav-active">
+                <span class="material-symbols-rounded">inventory_2</span>
+            </a>
+            <a href="pesanan.html">
+                <span class="material-symbols-rounded">local_mall</span>
+            </a>
+            <a href="setting.html">
+                <span class="material-symbols-rounded">settings</span>
+            </a>
+        </nav>
+        
+        <div class="bottom-indicator"></div>
+    </div>
+    
+    <!-- Modal Tambah Produk -->
+    <div class="modal-overlay" id="modalTambahProduk">
+        <div class="modal-content modal-product">
+            <button class="modal-close" onclick="closeModal('modalTambahProduk')">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <h2 class="modal-title">Tambah Produk</h2>
+            <form class="modal-form" id="formTambahProduk">
+                <!-- Upload Image -->
+                <div class="image-upload-section">
+                    <div class="image-preview" id="imagePreview">
+                        <span class="material-symbols-rounded">photo_camera</span>
+                    </div>
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;"/>
+                    <button type="button" class="upload-button" onclick="document.getElementById('imageInput').click()">Upload</button>
+                </div>
+                
+                <!-- Nama Produk -->
+                <div class="form-group">
+                    <label class="form-label">Nama Produk</label>
+                    <input class="form-input" type="text" placeholder="Masukkan nama produk" required/>
+                </div>
+                
+                <!-- Kategori -->
+                <div class="form-group">
+                    <label class="form-label">Kategori</label>
+                    <select class="form-input form-select" required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="1">Kategori 1</option>
+                        <option value="2">Kategori 2</option>
+                        <option value="3">Kategori 3</option>
+                        <option value="4">Kategori 4</option>
+                    </select>
+                </div>
+                
+                <!-- Harga & Stok -->
+                <div class="form-row">
+                    <div class="form-group form-half">
+                        <label class="form-label">Harga</label>
+                        <input class="form-input" type="text" placeholder="Rp" required/>
+                    </div>
+                    <div class="form-group form-half">
+                        <label class="form-label">Stok</label>
+                        <input class="form-input" type="number" placeholder="0" required/>
+                    </div>
+                </div>
+                
+                <!-- Deskripsi -->
+                <div class="form-group">
+                    <label class="form-label">Deskripsi</label>
+                    <textarea class="form-input form-textarea" rows="3" placeholder="Masukkan deskripsi produk"></textarea>
+                </div>
+                
+                <button class="submit-button" type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal Edit Produk -->
+    <div class="modal-overlay" id="modalEditProduk">
+        <div class="modal-content modal-product">
+            <button class="modal-close" onclick="closeModal('modalEditProduk')">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <h2 class="modal-title">Edit Produk</h2>
+            <form class="modal-form" id="formEditProduk">
+                <!-- Upload Image -->
+                <div class="image-upload-section">
+                    <div class="image-preview" id="imagePreviewEdit">
+                        <span class="material-symbols-rounded">photo_camera</span>
+                    </div>
+                    <input type="file" id="imageInputEdit" accept="image/*" style="display: none;"/>
+                    <button type="button" class="upload-button" onclick="document.getElementById('imageInputEdit').click()">Upload</button>
+                </div>
+                
+                <!-- Nama Produk -->
+                <div class="form-group">
+                    <label class="form-label">Nama Produk</label>
+                    <input class="form-input" id="editNamaProduk" type="text" placeholder="Masukkan nama produk" required/>
+                </div>
+                
+                <!-- Kategori -->
+                <div class="form-group">
+                    <label class="form-label">Kategori</label>
+                    <select class="form-input form-select" id="editKategoriProduk" required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="Kategori 1">Kategori 1</option>
+                        <option value="Kategori 2">Kategori 2</option>
+                        <option value="Kategori 3">Kategori 3</option>
+                        <option value="Kategori 4">Kategori 4</option>
+                    </select>
+                </div>
+                
+                <!-- Harga & Stok -->
+                <div class="form-row">
+                    <div class="form-group form-half">
+                        <label class="form-label">Harga</label>
+                        <input class="form-input" id="editHargaProduk" type="text" placeholder="Rp" required/>
+                    </div>
+                    <div class="form-group form-half">
+                        <label class="form-label">Stok</label>
+                        <input class="form-input" id="editStokProduk" type="number" placeholder="0" required/>
+                    </div>
+                </div>
+                
+                <!-- Deskripsi -->
+                <div class="form-group">
+                    <label class="form-label">Deskripsi</label>
+                    <textarea class="form-input form-textarea" id="editDeskripsiProduk" rows="3" placeholder="Masukkan deskripsi produk"></textarea>
+                </div>
+                
+                <button class="submit-button" type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal Hapus Produk -->
+    <div class="modal-overlay" id="modalHapusProduk">
+        <div class="modal-content modal-delete">
+            <button class="modal-close" onclick="closeModal('modalHapusProduk')">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <h2 class="modal-title">Hapus Produk</h2>
+            <div class="delete-message">
+                <p class="delete-confirm">Apakah anda yakin ingin menghapus Produk "<span id="deleteProductName"></span>"?</p>
+            </div>
+            <div class="modal-actions">
+                <button class="cancel-button" onclick="closeModal('modalHapusProduk')">Batal</button>
+                <button class="confirm-delete-button" id="confirmDeleteProductBtn">Hapus</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/produk.js"></script>
+</body>
+</html>

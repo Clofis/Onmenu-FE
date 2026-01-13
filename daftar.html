@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Halaman Daftar Onmenu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/daftar.css"/>
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <script>checkAlreadyLoggedIn();</script>
+    <div class="status-bar">
+        
+    </div>
+    
+    <main>
+        <div class="illustration-container">
+            <div class="illustration-wrapper">
+                <img alt="Online shop illustration with shopping cart and store" src="img/daftaricon.png"/>
+            </div>
+        </div>
+        
+        <div class="header-text">
+            <h1>Daftar</h1>
+            <p>Selamat Datang Di Onmenu!</p>
+        </div>
+        
+        <form id="formDaftar" onsubmit="event.preventDefault();">
+            <div class="form-group">
+                <input class="form-input" id="namaToko" placeholder="Nama Toko *" type="text" required/>
+                <span class="error-message" id="errorNamaToko"></span>
+            </div>
+            
+            <div class="form-group">
+                <input class="form-input" id="nomorTelepon" placeholder="Nomor Telepon *" type="tel" required/>
+                <span class="error-message" id="errorTelepon"></span>
+            </div>
+            
+            <div class="form-group">
+                <input class="form-input" id="email" placeholder="Email *" type="email" required/>
+                <span class="error-message" id="errorEmail"></span>
+            </div>
+            
+            <div class="form-group">
+                <input class="form-input" id="password" placeholder="Kata Sandi *" type="password" required/>
+                <span class="error-message" id="errorPassword"></span>
+            </div>
+            
+            <div class="checkbox-container">
+                <input class="checkbox-input" id="show_pass" onclick="const x = document.getElementById('password'); x.type = this.checked ? 'text' : 'password';" type="checkbox"/>
+                <label class="checkbox-label" for="show_pass">Tampilkan kata sandi</label>
+            </div>
+            
+            <button class="submit-btn" type="submit">
+                Daftar
+            </button>
+        </form>
+        
+        <div class="footer-text">
+            <p>
+                Sudah Punya akun? <a href="login.html">Masuk</a>
+            </p>
+        </div>
+    </main>
+    
+    <script src="js/daftar.js"></script>
+</body>
+</html>

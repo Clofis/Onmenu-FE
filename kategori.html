@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Manajemen Kategori Produk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/kategori.css"/>
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <script>checkAuth();</script>
+    <div class="container">
+        <div class="spacer"></div>
+        
+        <header>
+            <h1>Kategori</h1>
+        </header>
+        
+        <main>
+            <div class="search-container">
+                <span class="search-icon">
+                    <span class="material-symbols-rounded">search</span>
+                </span>
+                <input class="search-input" placeholder="Cari Produk" type="text"/>
+            </div>
+            
+            <button class="add-button">
+                <span class="material-symbols-rounded">add</span>
+                <span>Tambah Kategori</span>
+            </button>
+            
+            <div class="category-list">
+                <div class="category-item">
+                    <span class="category-name">Kategori 1</span>
+                    <div class="category-actions">
+                        <button class="edit-button">
+                            <span class="material-symbols-rounded">edit_note</span>
+                            <span>Edit</span>
+                        </button>
+                        <button class="delete-button">
+                            <span class="material-symbols-rounded">delete</span>
+                            <span>Hapus</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="category-item">
+                    <span class="category-name">Kategori 2</span>
+                    <div class="category-actions">
+                        <button class="edit-button">
+                            <span class="material-symbols-rounded">edit_note</span>
+                            <span>Edit</span>
+                        </button>
+                        <button class="delete-button">
+                            <span class="material-symbols-rounded">delete</span>
+                            <span>Hapus</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="category-item">
+                    <span class="category-name">Kategori 3</span>
+                    <div class="category-actions">
+                        <button class="edit-button">
+                            <span class="material-symbols-rounded">edit_note</span>
+                            <span>Edit</span>
+                        </button>
+                        <button class="delete-button">
+                            <span class="material-symbols-rounded">delete</span>
+                            <span>Hapus</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <nav>
+            <a href="dasboard.html">
+                <span class="material-symbols-rounded">home</span>
+            </a>
+            <a href="kategori.html" class="nav-active">
+                <span class="material-symbols-rounded">grid_view</span>
+            </a>
+            <a href="produk.html">
+                <span class="material-symbols-rounded">inventory_2</span>
+            </a>
+            <a href="pesanan.html">
+                <span class="material-symbols-rounded">local_mall</span>
+            </a>
+            <a href="setting.html">
+                <span class="material-symbols-rounded">settings</span>
+            </a>
+        </nav>
+        
+        <div class="bottom-indicator"></div>
+    </div>
+    
+    <!-- Modal Tambah Kategori -->
+    <div class="modal-overlay" id="modalTambah">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modalTambah')">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <h2 class="modal-title">Tambah Kategori</h2>
+            <form class="modal-form" id="formTambahKategori">
+                <div class="form-group">
+                    <label class="form-label">Nama Kategori</label>
+                    <input class="form-input" type="text" placeholder="Masukkan nama kategori" required/>
+                </div>
+                <button class="submit-button" type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal Edit Kategori -->
+    <div class="modal-overlay" id="modalEdit">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modalEdit')">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <h2 class="modal-title">Edit Kategori</h2>
+            <form class="modal-form" id="formEditKategori">
+                <div class="form-group">
+                    <label class="form-label">Nama Kategori</label>
+                    <input class="form-input" type="text" id="editKategoriInput" placeholder="Masukkan nama kategori" required/>
+                </div>
+                <button class="submit-button" type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal Hapus Kategori -->
+    <div class="modal-overlay" id="modalHapus">
+        <div class="modal-content modal-delete">
+            <button class="modal-close" onclick="closeModal('modalHapus')">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <h2 class="modal-title">Hapus Kategori</h2>
+            <div class="delete-message">
+                <p class="delete-info">Kategori "<span id="deleteKategoriName"></span>" memiliki <span id="deleteProductCount">0</span> produk di dalamnya</p>
+                <p class="delete-warning">Menghapusnya akan memindahkan semua produk ke kategori "Tanpa Kategori"</p>
+            </div>
+            <div class="modal-actions">
+                <button class="cancel-button" onclick="closeModal('modalHapus')">Batal</button>
+                <button class="confirm-delete-button" id="confirmDeleteBtn">Hapus</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/kategori.js"></script>
+</body>
+</html>
