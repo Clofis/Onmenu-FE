@@ -245,7 +245,7 @@ function init() {
                 closeModal('modalTambahProduk');
                 
                 // Show success message
-                alert('Produk berhasil ditambahkan!');
+                showToast('Produk berhasil ditambahkan!', 'success');
             }
         });
         
@@ -282,7 +282,7 @@ function init() {
                 editingProductId = null;
                 
                 // Show success message
-                alert('Produk berhasil diupdate!');
+                showToast('Produk berhasil diupdate!', 'success');
             }
         });
         
@@ -497,7 +497,7 @@ function deleteProduct() {
     deletingProductId = null;
     
     // Show success message
-    alert('Produk berhasil dihapus!');
+    showToast('Produk berhasil dihapus!', 'success');
 }
 
 // Export delete function

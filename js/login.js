@@ -81,8 +81,10 @@ function handleSubmit(e) {
             
             if (user.email === email && user.password === password) {
                 localStorage.setItem('isLoggedIn', 'true');
-                alert('Login berhasil!');
-                window.location.href = 'dasboard.html';
+                showToast('Login berhasil!', 'success');
+                setTimeout(() => {
+                    window.location.href = 'dasboard.html';
+                }, 1000);
             } else {
                 showError('email', 'errorEmail', 'Email atau kata sandi salah');
                 showError('password', 'errorPassword', ' ');

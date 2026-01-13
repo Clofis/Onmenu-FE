@@ -118,13 +118,13 @@ function handleImageUpload(event) {
     if (file) {
         // Check file size (max 5MB)
         if (file.size > 5 * 1024 * 1024) {
-            alert('Ukuran file terlalu besar! Maksimal 5MB');
+            showToast('Ukuran file terlalu besar! Maksimal 5MB', 'error');
             return;
         }
         
         // Check file type
         if (!file.type.startsWith('image/')) {
-            alert('File harus berupa gambar!');
+            showToast('File harus berupa gambar!', 'error');
             return;
         }
         

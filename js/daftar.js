@@ -127,10 +127,11 @@ function handleSubmit(e) {
         localStorage.setItem('userData', JSON.stringify(userData));
         localStorage.setItem('isLoggedIn', 'true');
         
-        alert('Pendaftaran berhasil!');
+        showToast('Pendaftaran berhasil!', 'success');
         
-        // Redirect to dashboard
-        window.location.href = 'dasboard.html';
+        setTimeout(() => {
+            window.location.href = 'dasboard.html';
+        }, 1000);
     }
 }
 
