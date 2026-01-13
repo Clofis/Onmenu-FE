@@ -229,12 +229,12 @@ function init() {
         formTambah.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const formData = new FormData(formTambah);
-            const inputs = formTambah.querySelectorAll('input, select, textarea');
+            const inputs = formTambah.querySelectorAll('input, textarea');
+            const categoryValue = document.getElementById('selectedCategoryTambah').value;
             
             const productData = {
                 name: inputs[1].value, // Nama Produk
-                category: inputs[2].value, // Kategori
+                category: categoryValue, // Kategori dari custom dropdown
                 price: parseInt(inputs[3].value.replace(/\D/g, '')) || 0, // Harga
                 stock: parseInt(inputs[4].value) || 0, // Stok
                 description: inputs[5].value || '' // Deskripsi
@@ -243,6 +243,17 @@ function init() {
             if (productData.name && productData.category) {
                 addProduct(productData);
                 closeModal('modalTambahProduk');
+                
+                // Reset custom select
+                const customSelect = document.getElementById('customSelectTambah');
+                if (customSelect) {
+                    const valueSpan = customSelect.querySelector('.custom-select-value');
+                    if (valueSpan) {
+                        valueSpan.textContent = 'Pilih Kategori';
+                        valueSpan.classList.add('placeholder');
+                    }
+                }
+                document.getElementById('selectedCategoryTambah').value = '';
                 
                 // Show success message
                 showToast('Produk berhasil ditambahkan!', 'success');
@@ -404,6 +415,16 @@ function editProduct(id) {
     document.getElementById('editStokProduk').value = product.stock;
     document.getElementById('editDeskripsiProduk').value = product.description || '';
     
+    // Update custom select display
+    const customSelect = document.getElementById('customSelectEdit');
+    if (customSelect) {
+        const valueSpan = customSelect.querySelector('.custom-select-value');
+        if (valueSpan) {
+            valueSpan.textContent = product.category;
+            valueSpan.classList.remove('placeholder');
+        }
+    }
+    
     // Show product image
     if (product.image) {
         updateImagePreviewEdit(product.image);
@@ -502,3 +523,80 @@ function deleteProduct() {
 
 // Export delete function
 window.showDeleteProductModal = showDeleteProductModal;
+
+// Category Picker Functions
+let currentPickerMode = null; // 'tambah' or 'edit'
+
+function openCategoryPicker(mode) {
+    currentPickerMode = mode;
+    const overlay = document.getElementById('categoryPickerOverlay');
+    if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Update selected state
+        const currentValue = mode === 'edit' 
+            ? document.getElementById('editKategoriProduk').value
+            : document.getElementById('selectedCategoryTambah').value;
+        
+        updateCategorySelection(currentValue);
+    }
+}
+
+function closeCategoryPicker() {
+    const overlay = document.getElementById('categoryPickerOverlay');
+    if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function selectCategory(categoryValue) {
+    if (currentPickerMode === 'edit') {
+        // Update edit form
+        document.getElementById('editKategoriProduk').value = categoryValue;
+        const customSelect = document.getElementById('customSelectEdit');
+        if (customSelect) {
+            const valueSpan = customSelect.querySelector('.custom-select-value');
+            if (valueSpan) {
+                valueSpan.textContent = categoryValue;
+                valueSpan.classList.remove('placeholder');
+            }
+        }
+    } else if (currentPickerMode === 'tambah') {
+        // Update tambah form
+        document.getElementById('selectedCategoryTambah').value = categoryValue;
+        const customSelect = document.getElementById('customSelectTambah');
+        if (customSelect) {
+            const valueSpan = customSelect.querySelector('.custom-select-value');
+            if (valueSpan) {
+                valueSpan.textContent = categoryValue;
+                valueSpan.classList.remove('placeholder');
+            }
+        }
+    }
+    
+    // Update visual selection
+    updateCategorySelection(categoryValue);
+    
+    // Close picker after short delay
+    setTimeout(() => {
+        closeCategoryPicker();
+    }, 200);
+}
+
+function updateCategorySelection(selectedValue) {
+    const options = document.querySelectorAll('.category-option');
+    options.forEach(option => {
+        if (option.dataset.value === selectedValue) {
+            option.classList.add('selected');
+        } else {
+            option.classList.remove('selected');
+        }
+    });
+}
+
+// Export category picker functions
+window.openCategoryPicker = openCategoryPicker;
+window.closeCategoryPicker = closeCategoryPicker;
+window.selectCategory = selectCategory;

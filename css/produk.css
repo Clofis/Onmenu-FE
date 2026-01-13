@@ -8,7 +8,7 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     -webkit-tap-highlight-color: transparent;
     min-height: max(884px, 100dvh);
-    background-color: #e2e8f0;
+    background-color: #f9fafb;
     color: #0f172a;
     display: flex;
     justify-content: center;
@@ -19,12 +19,12 @@ body {
     width: 100%;
     max-width: 430px;
     min-height: 812px;
-    background-color: #FAFAFA;
+    background-color: white;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 /* Status Bar */
@@ -735,4 +735,201 @@ body.dark .cancel-button {
 body.dark .cancel-button:hover {
     background-color: #1e293b;
     border-color: #475569;
+}
+
+/* Custom Select / Dropdown */
+.custom-select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.custom-select:hover {
+    border-color: #d1d5db;
+}
+
+.custom-select:active {
+    border-color: #FF6B35;
+}
+
+.custom-select-value {
+    flex: 1;
+    color: #374151;
+    font-size: 0.875rem;
+}
+
+.custom-select-value.placeholder {
+    color: #9ca3af;
+}
+
+.custom-select-icon {
+    color: #9ca3af;
+    font-size: 1.25rem;
+    transition: transform 0.3s;
+}
+
+.custom-select.active .custom-select-icon {
+    transform: rotate(180deg);
+}
+
+/* Category Picker Bottom Sheet */
+.category-picker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.category-picker-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.category-picker {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 1.5rem 1.5rem 0 0;
+    max-height: 70vh;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.category-picker-overlay.active .category-picker {
+    transform: translateY(0);
+}
+
+.category-picker-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-picker-header h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.category-picker-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.category-picker-close:hover {
+    color: #4b5563;
+}
+
+.category-picker-close .material-symbols-rounded {
+    font-size: 1.5rem;
+}
+
+.category-picker-list {
+    max-height: calc(70vh - 5rem);
+    overflow-y: auto;
+    padding: 0.5rem 0;
+}
+
+.category-option {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    user-select: none;
+}
+
+.category-option:hover {
+    background-color: #f9fafb;
+}
+
+.category-option:active {
+    background-color: #f3f4f6;
+}
+
+.category-option span:first-child {
+    font-size: 0.9375rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+.category-check {
+    color: #FF6B35;
+    font-size: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.category-option.selected .category-check {
+    opacity: 1;
+}
+
+.category-option.selected {
+    background-color: #fff7ed;
+}
+
+.category-option.selected span:first-child {
+    color: #FF6B35;
+    font-weight: 600;
+}
+
+/* Dark Mode - Category Picker */
+body.dark .category-picker {
+    background-color: #1f2937;
+}
+
+body.dark .category-picker-header {
+    border-bottom-color: #374151;
+}
+
+body.dark .category-picker-header h3 {
+    color: white;
+}
+
+body.dark .category-option span:first-child {
+    color: #e5e7eb;
+}
+
+body.dark .category-option:hover {
+    background-color: #374151;
+}
+
+body.dark .category-option.selected {
+    background-color: #422006;
+}
+
+body.dark .custom-select {
+    background-color: #1f2937;
+    border-color: #374151;
+}
+
+body.dark .custom-select-value {
+    color: #e5e7eb;
 }

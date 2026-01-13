@@ -171,13 +171,11 @@
                 <!-- Kategori -->
                 <div class="form-group">
                     <label class="form-label">Kategori</label>
-                    <select class="form-input form-select" required>
-                        <option value="">Pilih Kategori</option>
-                        <option value="1">Kategori 1</option>
-                        <option value="2">Kategori 2</option>
-                        <option value="3">Kategori 3</option>
-                        <option value="4">Kategori 4</option>
-                    </select>
+                    <div class="custom-select" id="customSelectTambah" onclick="openCategoryPicker('tambah')">
+                        <span class="custom-select-value">Pilih Kategori</span>
+                        <span class="material-symbols-rounded custom-select-icon">expand_more</span>
+                    </div>
+                    <input type="hidden" id="selectedCategoryTambah" value="" required/>
                 </div>
                 
                 <!-- Harga & Stok -->
@@ -229,13 +227,11 @@
                 <!-- Kategori -->
                 <div class="form-group">
                     <label class="form-label">Kategori</label>
-                    <select class="form-input form-select" id="editKategoriProduk" required>
-                        <option value="">Pilih Kategori</option>
-                        <option value="Kategori 1">Kategori 1</option>
-                        <option value="Kategori 2">Kategori 2</option>
-                        <option value="Kategori 3">Kategori 3</option>
-                        <option value="Kategori 4">Kategori 4</option>
-                    </select>
+                    <div class="custom-select" id="customSelectEdit" onclick="openCategoryPicker('edit')">
+                        <span class="custom-select-value">Pilih Kategori</span>
+                        <span class="material-symbols-rounded custom-select-icon">expand_more</span>
+                    </div>
+                    <input type="hidden" id="editKategoriProduk" value="" required/>
                 </div>
                 
                 <!-- Harga & Stok -->
@@ -278,6 +274,37 @@
         </div>
     </div>
     
+    <!-- Category Picker Bottom Sheet -->
+    <div class="category-picker-overlay" id="categoryPickerOverlay" onclick="closeCategoryPicker()">
+        <div class="category-picker" onclick="event.stopPropagation()">
+            <div class="category-picker-header">
+                <h3>Pilih Kategori</h3>
+                <button class="category-picker-close" onclick="closeCategoryPicker()">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+            <div class="category-picker-list">
+                <div class="category-option" data-value="Kategori 1" onclick="selectCategory('Kategori 1')">
+                    <span>Kategori 1</span>
+                    <span class="material-symbols-rounded category-check">check</span>
+                </div>
+                <div class="category-option" data-value="Kategori 2" onclick="selectCategory('Kategori 2')">
+                    <span>Kategori 2</span>
+                    <span class="material-symbols-rounded category-check">check</span>
+                </div>
+                <div class="category-option" data-value="Kategori 3" onclick="selectCategory('Kategori 3')">
+                    <span>Kategori 3</span>
+                    <span class="material-symbols-rounded category-check">check</span>
+                </div>
+                <div class="category-option" data-value="Kategori 4" onclick="selectCategory('Kategori 4')">
+                    <span>Kategori 4</span>
+                    <span class="material-symbols-rounded category-check">check</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/toast.js"></script>
     <script src="js/produk.js"></script>
 </body>
 </html>
