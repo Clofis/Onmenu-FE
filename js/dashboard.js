@@ -315,8 +315,27 @@ function confirmLogout() {
     window.location.href = 'login.html';
 }
 
+// Profile dropdown toggle
+function toggleProfileMenu() {
+    const dropdown = document.getElementById('profileDropdown');
+    if (dropdown) {
+        dropdown.classList.toggle('active');
+    }
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const profileWrapper = document.querySelector('.profile-menu-wrapper');
+    const dropdown = document.getElementById('profileDropdown');
+    
+    if (dropdown && profileWrapper && !profileWrapper.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+
 // Export modal functions
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.showLogoutModal = showLogoutModal;
 window.confirmLogout = confirmLogout;
+window.toggleProfileMenu = toggleProfileMenu;
