@@ -7,7 +7,9 @@ let products = [
         price: 10000,
         stock: 50,
         description: 'Kerupuk renyah dengan rasa original',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDzyD29lSqqqXjx8SljVUdvYd8MZO3XwfhNUbVJk8yzAOg1PXGFWo_SeVGh3X7QHEnh5yDpU3XlE5wGRQsHKfc2h-RK9id6oJhiKwC5HS0zj9g0DUITMx9KEMN5rkgmrSpj5tyOV9CSwfCZ9sTnu2RFydm_O0T2NWgoubr7UVkFb5_PP5fVR7l93FPtJsJ92IHQDjGwmIpxctyXx-gHIOKQEZCCSxUrmhyiHXztqtposm3CO0ahfrtJff8PbpGBsfX6sL7jZqQyS3I'
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDzyD29lSqqqXjx8SljVUdvYd8MZO3XwfhNUbVJk8yzAOg1PXGFWo_SeVGh3X7QHEnh5yDpU3XlE5wGRQsHKfc2h-RK9id6oJhiKwC5HS0zj9g0DUITMx9KEMN5rkgmrSpj5tyOV9CSwfCZ9sTnu2RFydm_O0T2NWgoubr7UVkFb5_PP5fVR7l93FPtJsJ92IHQDjGwmIpxctyXx-gHIOKQEZCCSxUrmhyiHXztqtposm3CO0ahfrtJff8PbpGBsfX6sL7jZqQyS3I',
+        hasVariants: false,
+        variants: []
     },
     {
         id: 2,
@@ -16,7 +18,13 @@ let products = [
         price: 12500,
         stock: 30,
         description: 'Kerupuk dengan sensasi pedas',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBx5GOLHflF2OhZMCIJokpS0BXt5ieG4K9ItTTFzBd6GUacVuo3QZOuqicXiJVE1BSum3ZVpMJudmPQHOd7Y1nSX0usWgmSBKASLz7frXJxWPlZnEwW63tL5fR1zNcpo6H31HTDTuqzYyfbd2AwQHbcpR8Ima8GefcCTeTGfk6FsJ06eJjQOvHe4Z9kZlwo_Mr6uJXXpvhRR6-ohjTdgzrkDp1Mq-_o5VOsAhq1BifSW26avMFAtjgoq995LdYEh7p0v_i0LxNVtc0'
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBx5GOLHflF2OhZMCIJokpS0BXt5ieG4K9ItTTFzBd6GUacVuo3QZOuqicXiJVE1BSum3ZVpMJudmPQHOd7Y1nSX0usWgmSBKASLz7frXJxWPlZnEwW63tL5fR1zNcpo6H31HTDTuqzYyfbd2AwQHbcpR8Ima8GefcCTeTGfk6FsJ06eJjQOvHe4Z9kZlwo_Mr6uJXXpvhRR6-ohjTdgzrkDp1Mq-_o5VOsAhq1BifSW26avMFAtjgoq995LdYEh7p0v_i0LxNVtc0',
+        hasVariants: true,
+        variants: [
+            { name: 'Level 1', price: 12500, image: null },
+            { name: 'Level 2', price: 13500, image: null },
+            { name: 'Level 3', price: 14500, image: null }
+        ]
     },
     {
         id: 3,
@@ -25,7 +33,9 @@ let products = [
         price: 15000,
         stock: 25,
         description: 'Kerupuk ikan segar',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtjawNYdQY4O18eS1Itojm7qO0_8WFQ4eJsOvZDyeQKZxKamG3emojrQp8n2tAdxZwBvfA3zAucvfQJHH2WrI1swJylX1-uv9UsT47RwSzSFAG9x1zGfB7VQb2gkjwao8b8z_OUa58xKa2OVDHPzzsg3jOEN1lbsLTozRW_Z7K9vDvr7HXnkXzNO1npAvLImCg6KN8_3fggvaHSl17rWOyOMFXDAtDoDspNzlp9JhNJGNDU0SstsOfiPHlA4nhPv3IQ9GMUUkF67E'
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtjawNYdQY4O18eS1Itojm7qO0_8WFQ4eJsOvZDyeQKZxKamG3emojrQp8n2tAdxZwBvfA3zAucvfQJHH2WrI1swJylX1-uv9UsT47RwSzSFAG9x1zGfB7VQb2gkjwao8b8z_OUa58xKa2OVDHPzzsg3jOEN1lbsLTozRW_Z7K9vDvr7HXnkXzNO1npAvLImCg6KN8_3fggvaHSl17rWOyOMFXDAtDoDspNzlp9JhNJGNDU0SstsOfiPHlA4nhPv3IQ9GMUUkF67E',
+        hasVariants: false,
+        variants: []
     },
     {
         id: 4,
@@ -34,7 +44,13 @@ let products = [
         price: 18000,
         stock: 20,
         description: 'Kerupuk udang premium',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuClVom2Fs0QMET5i6SYCoETFWnJvJV621G-cpQyR5ZXYvdHYQn0tgjqfoGWgOJhB6r3aQi_iUBsquPkMS1DpCGCPBF_gqIn97zVuuSZJHmVeXu3mBt4vmIrLUF9nIESbJdmE8LNHYmrtLiArNoZzjNxgWQ0xsjx0V8Y7aLt89sSR2ztXTHb36lCs7Z4z6Wp98ke80Elhx6X1n4Gm8FXJjK53y3dwRo7BH_7QzRW85yujn5yAPUrWtEPRAk-VyapQA8MlZUQViNz5HM'
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuClVom2Fs0QMET5i6SYCoETFWnJvJV621G-cpQyR5ZXYvdHYQn0tgjqfoGWgOJhB6r3aQi_iUBsquPkMS1DpCGCPBF_gqIn97zVuuSZJHmVeXu3mBt4vmIrLUF9nIESbJdmE8LNHYmrtLiArNoZzjNxgWQ0xsjx0V8Y7aLt89sSR2ztXTHb36lCs7Z4z6Wp98ke80Elhx6X1n4Gm8FXJjK53y3dwRo7BH_7QzRW85yujn5yAPUrWtEPRAk-VyapQA8MlZUQViNz5HM',
+        hasVariants: true,
+        variants: [
+            { name: 'Kecil', price: 15000, image: null },
+            { name: 'Sedang', price: 18000, image: null },
+            { name: 'Besar', price: 22000, image: null }
+        ]
     }
 ];
 
@@ -49,10 +65,14 @@ function renderProducts() {
         <div class="product-card" data-id="${product.id}">
             <div class="product-image">
                 <img alt="${product.name}" src="${product.image}"/>
+                ${product.hasVariants && product.variants && product.variants.length > 0 ? 
+                    `<div class="product-variant-badge">${product.variants.length} variant</div>` : ''
+                }
             </div>
             <div class="product-info">
                 <p class="product-category">${product.category}</p>
                 <h3 class="product-name">${product.name}</h3>
+                ${product.description ? `<p class="product-description">${product.description}</p>` : ''}
                 <p class="product-price">${formatRupiah(product.price)}</p>
                 <div class="product-actions">
                     <button class="edit-btn" onclick="editProduct(${product.id})">
@@ -135,6 +155,18 @@ function closeModal(modalId) {
             const form = document.getElementById('formTambahProduk');
             if (form) form.reset();
             resetImagePreview();
+            
+            // Reset variant form
+            document.getElementById('hasVariantTambah').checked = false;
+            document.getElementById('variantFormTambah').style.display = 'none';
+            clearVariantRows('tambah');
+        }
+        
+        if (modalId === 'modalEditProduk') {
+            // Reset variant form for edit
+            document.getElementById('hasVariantEdit').checked = false;
+            document.getElementById('variantFormEdit').style.display = 'none';
+            clearVariantRows('edit');
         }
     }
 }
@@ -188,7 +220,9 @@ function addProduct(productData) {
         price: productData.price,
         stock: productData.stock,
         description: productData.description,
-        image: uploadedImage || 'https://via.placeholder.com/300'
+        image: uploadedImage || 'https://via.placeholder.com/300',
+        hasVariants: productData.hasVariants || false,
+        variants: productData.variants || []
     };
     
     products.push(newProduct);
@@ -231,18 +265,32 @@ function init() {
             
             const inputs = formTambah.querySelectorAll('input, textarea');
             const categoryValue = document.getElementById('selectedCategoryTambah').value;
+            const hasVariants = document.getElementById('hasVariantTambah').checked;
+            const variants = hasVariants ? getVariantsFromForm('tambah') : [];
             
             const productData = {
                 name: inputs[1].value, // Nama Produk
                 category: categoryValue, // Kategori dari custom dropdown
                 price: parseInt(inputs[3].value.replace(/\D/g, '')) || 0, // Harga
                 stock: parseInt(inputs[4].value) || 0, // Stok
-                description: inputs[5].value || '' // Deskripsi
+                description: inputs[5].value || '', // Deskripsi
+                hasVariants: hasVariants,
+                variants: variants
             };
             
             if (productData.name && productData.category) {
+                // Validate variants if has variants is checked
+                if (hasVariants && variants.length === 0) {
+                    showToast('Silakan tambahkan minimal satu variant!', 'error');
+                    return;
+                }
+                
                 addProduct(productData);
                 closeModal('modalTambahProduk');
+                
+                // Reset form
+                document.getElementById('hasVariantTambah').checked = false;
+                toggleVariantForm('tambah');
                 
                 // Reset custom select
                 const customSelect = document.getElementById('customSelectTambah');
@@ -278,15 +326,26 @@ function init() {
         formEdit.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            const hasVariants = document.getElementById('hasVariantEdit').checked;
+            const variants = hasVariants ? getVariantsFromForm('edit') : [];
+            
             const productData = {
                 name: document.getElementById('editNamaProduk').value,
                 category: document.getElementById('editKategoriProduk').value,
                 price: parseInt(document.getElementById('editHargaProduk').value.replace(/\D/g, '')) || 0,
                 stock: parseInt(document.getElementById('editStokProduk').value) || 0,
-                description: document.getElementById('editDeskripsiProduk').value || ''
+                description: document.getElementById('editDeskripsiProduk').value || '',
+                hasVariants: hasVariants,
+                variants: variants
             };
             
             if (productData.name && productData.category && editingProductId) {
+                // Validate variants if has variants is checked
+                if (hasVariants && variants.length === 0) {
+                    showToast('Silakan tambahkan minimal satu variant!', 'error');
+                    return;
+                }
+                
                 updateProduct(productData);
                 closeModal('modalEditProduk');
                 resetImagePreviewEdit();
@@ -360,6 +419,21 @@ function init() {
         });
     });
     
+    // Variant checkbox event listeners
+    const hasVariantTambah = document.getElementById('hasVariantTambah');
+    if (hasVariantTambah) {
+        hasVariantTambah.addEventListener('change', () => {
+            toggleVariantForm('tambah');
+        });
+    }
+    
+    const hasVariantEdit = document.getElementById('hasVariantEdit');
+    if (hasVariantEdit) {
+        hasVariantEdit.addEventListener('change', () => {
+            toggleVariantForm('edit');
+        });
+    }
+    
     // Close modal when clicking overlay - DISABLED
     // User harus klik tombol close untuk menutup modal
     /*
@@ -415,6 +489,17 @@ function editProduct(id) {
     document.getElementById('editStokProduk').value = product.stock;
     document.getElementById('editDeskripsiProduk').value = product.description || '';
     
+    // Handle variants
+    const hasVariantCheckbox = document.getElementById('hasVariantEdit');
+    hasVariantCheckbox.checked = product.hasVariants || false;
+    
+    if (product.hasVariants && product.variants && product.variants.length > 0) {
+        toggleVariantForm('edit');
+        populateVariantsInForm('edit', product.variants);
+    } else {
+        toggleVariantForm('edit');
+    }
+    
     // Update custom select display
     const customSelect = document.getElementById('customSelectEdit');
     if (customSelect) {
@@ -442,6 +527,8 @@ function updateProduct(productData) {
         product.price = productData.price;
         product.stock = productData.stock;
         product.description = productData.description;
+        product.hasVariants = productData.hasVariants;
+        product.variants = productData.variants;
         
         if (uploadedImageEdit) {
             product.image = uploadedImageEdit;
@@ -600,3 +687,148 @@ function updateCategorySelection(selectedValue) {
 window.openCategoryPicker = openCategoryPicker;
 window.closeCategoryPicker = closeCategoryPicker;
 window.selectCategory = selectCategory;
+
+// Variant Functions
+function toggleVariantForm(mode) {
+    const checkbox = document.getElementById(`hasVariant${mode === 'tambah' ? 'Tambah' : 'Edit'}`);
+    const variantForm = document.getElementById(`variantForm${mode === 'tambah' ? 'Tambah' : 'Edit'}`);
+    
+    if (checkbox.checked) {
+        variantForm.style.display = 'block';
+        // Add first variant row if none exists
+        const variantList = document.getElementById(`variantList${mode === 'tambah' ? 'Tambah' : 'Edit'}`);
+        if (variantList.children.length === 0) {
+            addVariantRow(mode);
+        }
+    } else {
+        variantForm.style.display = 'none';
+        // Clear all variant rows
+        clearVariantRows(mode);
+    }
+}
+
+function addVariantRow(mode) {
+    const variantList = document.getElementById(`variantList${mode === 'tambah' ? 'Tambah' : 'Edit'}`);
+    const rowIndex = variantList.children.length;
+    
+    const variantRow = document.createElement('div');
+    variantRow.className = 'variant-row';
+    variantRow.innerHTML = `
+        <div style="width: 100%; margin-bottom: 0.5rem;">
+            <div class="form-group" style="gap: 0.25rem;">
+                <label class="form-label" style="font-size: 0.75rem;">Gambar</label>
+                <input class="variant-image-input" type="file" accept="image/*" style="display: none;"/>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <button type="button" style="padding: 0.375rem 0.75rem; border: 1px solid #d1d5db; background: white; border-radius: 0.375rem; font-weight: 500; font-size: 0.75rem; color: #374151; cursor: pointer; white-space: nowrap; transition: all 0.3s;" onclick="this.closest('.variant-row').querySelector('.variant-image-input').click()">
+                        Choose File
+                    </button>
+                    <span class="variant-file-name" style="font-size: 0.75rem; color: #6b7280; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">No file chosen</span>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; gap: 0.75rem; align-items: flex-end;">
+            <div class="form-group" style="flex: 1;">
+                <label class="form-label">Nama Varian</label>
+                <input class="form-input variant-name" type="text" placeholder="Contoh: Kecil, Level 1" required/>
+            </div>
+            <div class="form-group" style="flex: 0.8;">
+                <label class="form-label">Harga</label>
+                <input class="form-input variant-price" type="text" placeholder="Rp" required/>
+            </div>
+            <button type="button" class="remove-variant-btn" onclick="removeVariantRow(this)">
+                <span class="material-symbols-rounded">delete</span>
+            </button>
+        </div>
+    `;
+    
+    variantList.appendChild(variantRow);
+    
+    // Add price formatting to the new price input
+    const priceInput = variantRow.querySelector('.variant-price');
+    priceInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value) {
+            e.target.value = 'Rp' + value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+    });
+    
+    // Add file input handler
+    const fileInput = variantRow.querySelector('.variant-image-input');
+    const fileName = variantRow.querySelector('.variant-file-name');
+    
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            fileName.textContent = e.target.files[0].name;
+            
+            // Store image data
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                fileInput.dataset.imageData = event.target.result;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        } else {
+            fileName.textContent = 'No file chosen';
+        }
+    });
+}
+
+function removeVariantRow(button) {
+    const variantRow = button.closest('.variant-row');
+    variantRow.remove();
+}
+
+function clearVariantRows(mode) {
+    const variantList = document.getElementById(`variantList${mode === 'tambah' ? 'Tambah' : 'Edit'}`);
+    variantList.innerHTML = '';
+}
+
+function getVariantsFromForm(mode) {
+    const variantList = document.getElementById(`variantList${mode === 'tambah' ? 'Tambah' : 'Edit'}`);
+    const variants = [];
+    
+    const variantRows = variantList.querySelectorAll('.variant-row');
+    variantRows.forEach(row => {
+        const nameInput = row.querySelector('.variant-name');
+        const priceInput = row.querySelector('.variant-price');
+        const fileInput = row.querySelector('.variant-image-input');
+        
+        if (nameInput.value.trim() && priceInput.value.trim()) {
+            variants.push({
+                name: nameInput.value.trim(),
+                price: parseInt(priceInput.value.replace(/\D/g, '')) || 0,
+                image: fileInput.dataset.imageData || null
+            });
+        }
+    });
+    
+    return variants;
+}
+
+function populateVariantsInForm(mode, variants) {
+    const variantList = document.getElementById(`variantList${mode === 'tambah' ? 'Tambah' : 'Edit'}`);
+    
+    // Clear existing variants
+    clearVariantRows(mode);
+    
+    // Add variant rows for each variant
+    variants.forEach(variant => {
+        addVariantRow(mode);
+        const lastRow = variantList.lastElementChild;
+        const nameInput = lastRow.querySelector('.variant-name');
+        const priceInput = lastRow.querySelector('.variant-price');
+        const fileInput = lastRow.querySelector('.variant-image-input');
+        const fileName = lastRow.querySelector('.variant-file-name');
+        
+        nameInput.value = variant.name;
+        priceInput.value = formatRupiah(variant.price);
+        
+        if (variant.image) {
+            fileInput.dataset.imageData = variant.image;
+            fileName.textContent = 'Image loaded';
+        }
+    });
+}
+
+// Export variant functions
+window.addVariantRow = addVariantRow;
+window.removeVariantRow = removeVariantRow;

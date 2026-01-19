@@ -36,6 +36,22 @@
             </div>
             
             <div class="form-group">
+                <label class="url-label">URL Menu Toko <span class="required">*</span> <span class="url-note">(Hanya bisa diubah 1x)</span></label>
+                <div class="url-input-container">
+                    <span class="url-prefix">onmenu.id/</span>
+                    <input class="form-input url-input" id="urlToko" placeholder="namatoko" type="text" required/>
+                </div>
+                <span class="error-message" id="errorUrlToko"></span>
+                <div class="url-preview" id="urlPreview">
+
+                    <span class="preview-url">onmenu.id/</span>
+                </div>
+                <div class="url-hint" id="urlHint">
+                    💡 URL otomatis dibuat dari nama toko, Anda bisa mengubahnya sesuai keinginan
+                </div>
+            </div>
+            
+            <div class="form-group">
                 <input class="form-input" id="nomorTelepon" placeholder="Nomor Telepon *" type="tel" required/>
                 <span class="error-message" id="errorTelepon"></span>
             </div>

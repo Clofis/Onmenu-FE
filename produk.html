@@ -45,6 +45,7 @@
                     <div class="product-info">
                         <p class="product-category">Kategori 1</p>
                         <h3 class="product-name">Kerupuk Original</h3>
+                        <p class="product-description">Kerupuk renyah dengan rasa original yang gurih dan lezat</p>
                         <p class="product-price">Rp10,000</p>
                         <div class="product-actions">
                             <button class="edit-btn">
@@ -62,10 +63,12 @@
                 <div class="product-card">
                     <div class="product-image">
                         <img alt="Snack Kerupuk Pedas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx5GOLHflF2OhZMCIJokpS0BXt5ieG4K9ItTTFzBd6GUacVuo3QZOuqicXiJVE1BSum3ZVpMJudmPQHOd7Y1nSX0usWgmSBKASLz7frXJxWPlZnEwW63tL5fR1zNcpo6H31HTDTuqzYyfbd2AwQHbcpR8Ima8GefcCTeTGfk6FsJ06eJjQOvHe4Z9kZlwo_Mr6uJXXpvhRR6-ohjTdgzrkDp1Mq-_o5VOsAhq1BifSW26avMFAtjgoq995LdYEh7p0v_i0LxNVtc0"/>
+                        <div class="product-variant-badge">3 variant</div>
                     </div>
                     <div class="product-info">
                         <p class="product-category">Kategori 1</p>
                         <h3 class="product-name">Kerupuk Pedas</h3>
+                        <p class="product-description">Kerupuk dengan sensasi pedas yang menggigit dan lezat</p>
                         <p class="product-price">Rp12,500</p>
                         <div class="product-actions">
                             <button class="edit-btn">
@@ -87,6 +90,7 @@
                     <div class="product-info">
                         <p class="product-category">Kategori 2</p>
                         <h3 class="product-name">Kerupuk Ikan</h3>
+                        <p class="product-description">Kerupuk ikan segar dengan cita rasa yang autentik</p>
                         <p class="product-price">Rp15,000</p>
                         <div class="product-actions">
                             <button class="edit-btn">
@@ -104,10 +108,12 @@
                 <div class="product-card">
                     <div class="product-image">
                         <img alt="Snack Kerupuk Udang" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClVom2Fs0QMET5i6SYCoETFWnJvJV621G-cpQyR5ZXYvdHYQn0tgjqfoGWgOJhB6r3aQi_iUBsquPkMS1DpCGCPBF_gqIn97zVuuSZJHmVeXu3mBt4vmIrLUF9nIESbJdmE8LNHYmrtLiArNoZzjNxgWQ0xsjx0V8Y7aLt89sSR2ztXTHb36lCs7Z4z6Wp98ke80Elhx6X1n4Gm8FXJjK53y3dwRo7BH_7QzRW85yujn5yAPUrWtEPRAk-VyapQA8MlZUQViNz5HM"/>
+                        <div class="product-variant-badge">3 variant</div>
                     </div>
                     <div class="product-info">
                         <p class="product-category">Kategori 2</p>
                         <h3 class="product-name">Kerupuk Udang</h3>
+                        <p class="product-description">Kerupuk udang premium dengan rasa yang lezat</p>
                         <p class="product-price">Rp18,000</p>
                         <div class="product-actions">
                             <button class="edit-btn">
@@ -196,6 +202,31 @@
                     <textarea class="form-input form-textarea" rows="3" placeholder="Masukkan deskripsi produk"></textarea>
                 </div>
                 
+                <!-- Variant Section -->
+                <div class="form-group">
+                    <div class="variant-checkbox-container">
+                        <input type="checkbox" id="hasVariantTambah" class="variant-checkbox">
+                        <label for="hasVariantTambah" class="variant-checkbox-label">
+                            <span class="checkbox-custom"></span>
+                            Memiliki Variant (ukuran, level, dll)
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Variant Form (Hidden by default) -->
+                <div class="variant-form-container" id="variantFormTambah" style="display: none;">
+                    <div class="variant-form-header">
+                        <label class="form-label">Variant Produk</label>
+                        <button type="button" class="add-variant-btn" onclick="addVariantRow('tambah')">
+                            <span class="material-symbols-rounded">add</span>
+                            Tambah Variant
+                        </button>
+                    </div>
+                    <div class="variant-list" id="variantListTambah">
+                        <!-- Variant rows will be added here -->
+                    </div>
+                </div>
+                
                 <button class="submit-button" type="submit">Simpan</button>
             </form>
         </div>
@@ -250,6 +281,31 @@
                 <div class="form-group">
                     <label class="form-label">Deskripsi</label>
                     <textarea class="form-input form-textarea" id="editDeskripsiProduk" rows="3" placeholder="Masukkan deskripsi produk"></textarea>
+                </div>
+                
+                <!-- Variant Section -->
+                <div class="form-group">
+                    <div class="variant-checkbox-container">
+                        <input type="checkbox" id="hasVariantEdit" class="variant-checkbox">
+                        <label for="hasVariantEdit" class="variant-checkbox-label">
+                            <span class="checkbox-custom"></span>
+                            Memiliki Variant (ukuran, level, dll)
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Variant Form (Hidden by default) -->
+                <div class="variant-form-container" id="variantFormEdit" style="display: none;">
+                    <div class="variant-form-header">
+                        <label class="form-label">Variant Produk</label>
+                        <button type="button" class="add-variant-btn" onclick="addVariantRow('edit')">
+                            <span class="material-symbols-rounded">add</span>
+                            Tambah Variant
+                        </button>
+                    </div>
+                    <div class="variant-list" id="variantListEdit">
+                        <!-- Variant rows will be added here -->
+                    </div>
                 </div>
                 
                 <button class="submit-button" type="submit">Simpan</button>

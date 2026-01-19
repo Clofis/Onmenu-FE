@@ -1,11 +1,13 @@
 // Data toko
 let tokoData = {
+    namaLengkap: '',
     namaToko: '',
     email: '',
     nomorTelepon: '',
     alamat: '',
     deskripsi: '',
-    fotoProfil: null
+    fotoProfil: null,
+    bannerToko: null
 };
 
 // Load data from localStorage
@@ -15,6 +17,9 @@ function loadTokoData() {
         tokoData = JSON.parse(savedData);
         populateForm();
     }
+    
+    // Update banner actions visibility on load
+    updateBannerActionsVisibility();
 }
 
 // Save data to localStorage
@@ -24,12 +29,14 @@ function saveTokoData() {
 
 // Populate form with saved data
 function populateForm() {
+    const namaLengkap = document.getElementById('namaLengkap');
     const namaToko = document.getElementById('namaToko');
     const email = document.getElementById('email');
     const nomorTelepon = document.getElementById('nomorTelepon');
     const alamat = document.getElementById('alamat');
     const deskripsi = document.getElementById('deskripsi');
     
+    if (namaLengkap) namaLengkap.value = tokoData.namaLengkap || '';
     if (namaToko) namaToko.value = tokoData.namaToko || '';
     if (email) email.value = tokoData.email || '';
     if (nomorTelepon) nomorTelepon.value = tokoData.nomorTelepon || '';
@@ -40,6 +47,17 @@ function populateForm() {
     if (tokoData.fotoProfil) {
         updateAvatar(tokoData.fotoProfil);
     }
+    
+    // Update banner if exists
+    if (tokoData.bannerToko) {
+        updateBanner(tokoData.bannerToko);
+    }
+    
+    // Update profile display
+    updateProfileDisplay();
+    
+    // Update store info display
+    updateStoreInfoDisplay();
 }
 
 // Update avatar display
@@ -72,6 +90,131 @@ function resetAvatar() {
     }
 }
 
+// Update banner display
+function updateBanner(imageSrc) {
+    const bannerBackground = document.getElementById('bannerBackground');
+    const bannerPlaceholder = document.getElementById('bannerPlaceholder');
+    const bannerActions = document.getElementById('bannerActions');
+    const bannerEditOverlay = document.getElementById('bannerEditOverlay');
+    
+    if (bannerBackground) {
+        bannerBackground.style.backgroundImage = `url(${imageSrc})`;
+        bannerBackground.style.backgroundSize = 'cover';
+        bannerBackground.style.backgroundPosition = 'center';
+        bannerBackground.style.backgroundRepeat = 'no-repeat';
+    }
+    
+    if (bannerPlaceholder) {
+        bannerPlaceholder.style.display = 'none';
+    }
+    
+    // Show banner actions when banner exists
+    if (bannerActions) {
+        bannerActions.style.display = 'flex';
+    }
+    
+    // Hide hover edit overlay when banner exists
+    if (bannerEditOverlay) {
+        bannerEditOverlay.style.display = 'none';
+    }
+}
+
+// Reset banner to default
+function resetBanner() {
+    const bannerBackground = document.getElementById('bannerBackground');
+    const bannerPlaceholder = document.getElementById('bannerPlaceholder');
+    const bannerActions = document.getElementById('bannerActions');
+    const bannerEditOverlay = document.getElementById('bannerEditOverlay');
+    
+    if (bannerBackground) {
+        bannerBackground.style.backgroundImage = '';
+        bannerBackground.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+    }
+    
+    if (bannerPlaceholder) {
+        bannerPlaceholder.style.display = 'flex';
+    }
+    
+    // Hide banner actions when no banner
+    if (bannerActions) {
+        bannerActions.style.display = 'none';
+    }
+    
+    // Show hover edit overlay when no banner
+    if (bannerEditOverlay) {
+        bannerEditOverlay.style.display = 'flex';
+    }
+}
+
+// Update profile display info
+function updateProfileDisplay() {
+    // Function removed - no longer displaying profile info in the card
+}
+
+// Update banner actions visibility
+function updateBannerActionsVisibility() {
+    const bannerActions = document.getElementById('bannerActions');
+    const bannerEditOverlay = document.getElementById('bannerEditOverlay');
+    
+    if (tokoData.bannerToko) {
+        // Banner exists - show action buttons, hide hover overlay
+        if (bannerActions) {
+            bannerActions.style.display = 'flex';
+        }
+        if (bannerEditOverlay) {
+            bannerEditOverlay.style.display = 'none';
+        }
+    } else {
+        // No banner - hide action buttons, show hover overlay
+        if (bannerActions) {
+            bannerActions.style.display = 'none';
+        }
+        if (bannerEditOverlay) {
+            bannerEditOverlay.style.display = 'flex';
+        }
+    }
+}
+
+// Update store info display
+function updateStoreInfoDisplay() {
+    // Get data from localStorage (from registration)
+    const userData = localStorage.getItem('userData');
+    let storeData = null;
+    
+    if (userData) {
+        try {
+            storeData = JSON.parse(userData);
+        } catch (e) {
+            console.error('Error parsing userData:', e);
+        }
+    }
+    
+    // Update nama toko display
+    const displayNamaToko = document.getElementById('displayNamaToko');
+    if (displayNamaToko) {
+        if (storeData && storeData.namaToko) {
+            displayNamaToko.textContent = storeData.namaToko;
+        } else if (tokoData.namaToko) {
+            displayNamaToko.textContent = tokoData.namaToko;
+        } else {
+            displayNamaToko.textContent = 'Nama Toko';
+        }
+    }
+    
+    // Update URL toko display
+    const displayUrlToko = document.getElementById('displayUrlToko');
+    if (displayUrlToko) {
+        if (storeData && storeData.urlToko) {
+            const fullUrl = `onmenu.id/${storeData.urlToko}`;
+            displayUrlToko.textContent = fullUrl;
+            displayUrlToko.href = `katalog.html?store=${storeData.urlToko}`;
+        } else {
+            displayUrlToko.textContent = 'onmenu.id/-';
+            displayUrlToko.href = '#';
+        }
+    }
+}
+
 // Modal functions
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
@@ -94,6 +237,66 @@ function showDeleteAvatarModal() {
     openModal('modalHapusFoto');
 }
 
+// Show delete banner modal
+function showDeleteBannerModal() {
+    openModal('modalHapusBanner');
+}
+
+// Show share URL modal
+function showShareUrlModal() {
+    const userData = localStorage.getItem('userData');
+    let storeUrl = 'onmenu.id/-';
+    
+    if (userData) {
+        try {
+            const storeData = JSON.parse(userData);
+            if (storeData.urlToko) {
+                storeUrl = `https://onmenu.id/${storeData.urlToko}`;
+            }
+        } catch (e) {
+            console.error('Error parsing userData:', e);
+        }
+    }
+    
+    // Update share URL input
+    const shareUrlInput = document.getElementById('shareUrlInput');
+    if (shareUrlInput) {
+        shareUrlInput.value = storeUrl;
+    }
+    
+    openModal('modalShareUrl');
+}
+
+// Copy URL to clipboard
+async function copyUrlToClipboard() {
+    const shareUrlInput = document.getElementById('shareUrlInput');
+    if (shareUrlInput) {
+        try {
+            await navigator.clipboard.writeText(shareUrlInput.value);
+            showToast('URL berhasil disalin!', 'success');
+            closeModal('modalShareUrl');
+        } catch (err) {
+            // Fallback for older browsers
+            shareUrlInput.select();
+            document.execCommand('copy');
+            showToast('URL berhasil disalin!', 'success');
+            closeModal('modalShareUrl');
+        }
+    }
+}
+
+// Share via WhatsApp
+function shareViaWhatsApp() {
+    const shareUrlInput = document.getElementById('shareUrlInput');
+    if (shareUrlInput) {
+        const url = shareUrlInput.value;
+        const message = `Lihat menu toko saya di: ${url}`;
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+        closeModal('modalShareUrl');
+    }
+}
+
 // Show success modal
 function showSuccessModal() {
     openModal('modalSuccess');
@@ -110,6 +313,15 @@ function removeAvatar() {
     resetAvatar();
     saveTokoData();
     closeModal('modalHapusFoto');
+}
+
+// Remove banner
+function removeBanner() {
+    tokoData.bannerToko = null;
+    resetBanner();
+    updateBannerActionsVisibility(); // Update button visibility
+    saveTokoData();
+    closeModal('modalHapusBanner');
 }
 
 // Handle image upload
@@ -132,6 +344,34 @@ function handleImageUpload(event) {
         reader.onload = function(e) {
             tokoData.fotoProfil = e.target.result;
             updateAvatar(e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+// Handle banner upload
+function handleBannerUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        // Check file size (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            showToast('Ukuran file terlalu besar! Maksimal 5MB', 'error');
+            return;
+        }
+        
+        // Check file type
+        if (!file.type.startsWith('image/')) {
+            showToast('File harus berupa gambar!', 'error');
+            return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            tokoData.bannerToko = e.target.result;
+            updateBanner(e.target.result);
+            updateBannerActionsVisibility(); // Update button visibility
+            saveTokoData(); // Auto save banner
+            showToast('Banner berhasil diupload!', 'success');
         };
         reader.readAsDataURL(file);
     }
@@ -167,6 +407,7 @@ function showError(inputId, errorId, message) {
 
 // Clear all errors
 function clearAllErrors() {
+    clearError('namaLengkap', 'errorNamaLengkap');
     clearError('namaToko', 'errorNamaToko');
     clearError('email', 'errorEmail');
     clearError('nomorTelepon', 'errorTelepon');
@@ -177,12 +418,14 @@ function saveFormData() {
     // Clear previous errors
     clearAllErrors();
     
+    const namaLengkap = document.getElementById('namaLengkap');
     const namaToko = document.getElementById('namaToko');
     const email = document.getElementById('email');
     const nomorTelepon = document.getElementById('nomorTelepon');
     const alamat = document.getElementById('alamat');
     const deskripsi = document.getElementById('deskripsi');
     
+    tokoData.namaLengkap = namaLengkap.value.trim();
     tokoData.namaToko = namaToko.value.trim();
     tokoData.email = email.value.trim();
     tokoData.nomorTelepon = nomorTelepon.value.trim();
@@ -190,6 +433,12 @@ function saveFormData() {
     tokoData.deskripsi = deskripsi.value.trim();
     
     let hasError = false;
+    
+    // Validation - Nama Lengkap (required)
+    if (!tokoData.namaLengkap) {
+        showError('namaLengkap', 'errorNamaLengkap', 'Nama lengkap wajib diisi');
+        hasError = true;
+    }
     
     // Validation - Nama Toko (required)
     if (!tokoData.namaToko) {
@@ -260,10 +509,53 @@ function init() {
     fileInput.id = 'profileImageInput';
     document.body.appendChild(fileInput);
     
-    // Change profile button
-    const changeProfileBtn = document.querySelector('.change-profile-btn');
-    if (changeProfileBtn) {
-        changeProfileBtn.addEventListener('click', () => {
+    // Create hidden file input for banner
+    const bannerInput = document.createElement('input');
+    bannerInput.type = 'file';
+    bannerInput.accept = 'image/*';
+    bannerInput.style.display = 'none';
+    bannerInput.id = 'bannerImageInput';
+    document.body.appendChild(bannerInput);
+    
+    // Banner click handler (for editing)
+    const bannerBackground = document.getElementById('bannerBackground');
+    if (bannerBackground) {
+        bannerBackground.addEventListener('click', () => {
+            bannerInput.click();
+        });
+    }
+    
+    // Banner action buttons
+    const editBannerBtn = document.getElementById('editBannerBtn');
+    const deleteBannerBtn = document.getElementById('deleteBannerBtn');
+    
+    if (editBannerBtn) {
+        editBannerBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent banner click
+            bannerInput.click();
+        });
+    }
+    
+    if (deleteBannerBtn) {
+        deleteBannerBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent banner click
+            showDeleteBannerModal();
+        });
+    }
+    
+    // Profile picture click handler
+    const avatarContainer = document.querySelector('.avatar-container');
+    if (avatarContainer) {
+        avatarContainer.addEventListener('click', () => {
+            fileInput.click();
+        });
+    }
+    
+    // Profile edit icon click handler
+    const profileEditIcon = document.querySelector('.profile-edit-icon');
+    if (profileEditIcon) {
+        profileEditIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
             fileInput.click();
         });
     }
@@ -271,11 +563,15 @@ function init() {
     // File input change handler
     fileInput.addEventListener('change', handleImageUpload);
     
+    // Banner input change handler
+    bannerInput.addEventListener('change', handleBannerUpload);
+    
     // Remove avatar button
     const removeAvatarBtn = document.getElementById('removeAvatarBtn');
     if (removeAvatarBtn) {
         removeAvatarBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             showDeleteAvatarModal();
         });
     }
@@ -288,6 +584,39 @@ function init() {
         });
     }
     
+    // Confirm delete banner button
+    const confirmDeleteBannerBtn = document.getElementById('confirmDeleteBannerBtn');
+    if (confirmDeleteBannerBtn) {
+        confirmDeleteBannerBtn.addEventListener('click', () => {
+            removeBanner();
+        });
+    }
+    
+    // Share URL button
+    const shareUrlBtn = document.getElementById('shareUrlBtn');
+    if (shareUrlBtn) {
+        shareUrlBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showShareUrlModal();
+        });
+    }
+    
+    // Copy URL buttons
+    const copyUrlBtn = document.getElementById('copyUrlBtn');
+    const copyUrlBtnAlt = document.getElementById('copyUrlBtnAlt');
+    if (copyUrlBtn) {
+        copyUrlBtn.addEventListener('click', copyUrlToClipboard);
+    }
+    if (copyUrlBtnAlt) {
+        copyUrlBtnAlt.addEventListener('click', copyUrlToClipboard);
+    }
+    
+    // WhatsApp share button
+    const shareWhatsappBtn = document.getElementById('shareWhatsappBtn');
+    if (shareWhatsappBtn) {
+        shareWhatsappBtn.addEventListener('click', shareViaWhatsApp);
+    }
+    
     // Save button
     const saveBtn = document.querySelector('.submit-btn');
     if (saveBtn) {
@@ -296,6 +625,12 @@ function init() {
             
             if (saveFormData()) {
                 showSuccessModal();
+                
+                // Update profile display
+                updateProfileDisplay();
+                
+                // Update store info display
+                updateStoreInfoDisplay();
                 
                 // Update dashboard header if on same session
                 updateDashboardHeader();
@@ -317,6 +652,13 @@ function init() {
     }
     
     // Clear error on input for other fields
+    const namaLengkap = document.getElementById('namaLengkap');
+    if (namaLengkap) {
+        namaLengkap.addEventListener('input', () => {
+            clearError('namaLengkap', 'errorNamaLengkap');
+        });
+    }
+    
     const namaToko = document.getElementById('namaToko');
     if (namaToko) {
         namaToko.addEventListener('input', () => {
@@ -332,18 +674,20 @@ function init() {
     }
     
     // Auto-save on blur
-    const allInputs = [namaToko, emailInput, phoneInput, document.getElementById('alamat'), document.getElementById('deskripsi')];
+    const allInputs = [namaLengkap, namaToko, emailInput, phoneInput, document.getElementById('alamat'), document.getElementById('deskripsi')];
     allInputs.forEach(input => {
         if (input) {
             input.addEventListener('blur', () => {
                 // Auto-save when user leaves input field
                 const tempData = {
+                    namaLengkap: namaLengkap?.value.trim() || '',
                     namaToko: namaToko?.value.trim() || '',
                     email: emailInput?.value.trim() || '',
                     nomorTelepon: phoneInput?.value.trim() || '',
                     alamat: document.getElementById('alamat')?.value.trim() || '',
                     deskripsi: document.getElementById('deskripsi')?.value.trim() || '',
-                    fotoProfil: tokoData.fotoProfil
+                    fotoProfil: tokoData.fotoProfil,
+                    bannerToko: tokoData.bannerToko
                 };
                 
                 localStorage.setItem('tokoData', JSON.stringify(tempData));
@@ -373,4 +717,6 @@ window.loadTokoData = loadTokoData;
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.showDeleteAvatarModal = showDeleteAvatarModal;
+window.showDeleteBannerModal = showDeleteBannerModal;
+window.showShareUrlModal = showShareUrlModal;
 window.showSuccessModal = showSuccessModal;
